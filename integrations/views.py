@@ -13,5 +13,11 @@ def twitter_feed_view(request):
         cache.set('twitter_feed', tweets, timeout=300)  # cache for 5 minutes
     return render(request, 'integrations/twitter_feed.html', {'tweets': tweets})
 
+# integrations/views.py
+from .facebook_client import fetch_facebook_posts
+
+def facebook_feed_view(request):
+    posts = fetch_facebook_posts()
+    return render(request, 'integrations/facebook_feed.html', {'posts': posts})
 
 
