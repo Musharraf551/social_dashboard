@@ -9,6 +9,12 @@
         <img src="{{ user.profile.profile_picture.url }}" class="img-thumbnail" style="max-width: 200px;">
     {% endif %}
     <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
-    <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
+
+    <div class="mt-4">
+        <a href="{% url 'integrations:twitter_feed' %}" class="btn btn-primary me-2">View Twitter Feed</a>
+        <a href="{% url 'integrations:facebook_feed' %}" class="btn btn-success">View Facebook Feed</a>
+    </div>
+
+    <a href="{% url 'users:edit_profile' %}" class="btn btn-warning">Edit Profile</a>
 </div>
 {% endblock %}

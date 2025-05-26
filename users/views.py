@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.urls import reverse
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
@@ -12,7 +12,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('dashboard:home')
+            return redirect('users:profile')
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
