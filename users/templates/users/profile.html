@@ -5,16 +5,17 @@
     <h2>Your Profile</h2>
     <p><strong>Username:</strong> {{ user.username }}</p>
     <p><strong>Email:</strong> {{ user.email }}</p>
-    {% if user.profile.profile_picture %}
-        <img src="{{ user.profile.profile_picture.url }}" class="img-thumbnail" style="max-width: 200px;">
+    {% if user.profile_picture %}
+        <img src="{{ user.profile_picture.url }}" class="img-thumbnail" style="max-width: 200px;">
     {% endif %}
-    <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
+
+    <p><strong>Bio:</strong> {{ user.bio }}</p>
 
     <div class="mt-4">
         <a href="{% url 'integrations:twitter_feed' %}" class="btn btn-primary me-2">View Twitter Feed</a>
         <a href="{% url 'integrations:facebook_feed' %}" class="btn btn-success">View Facebook Feed</a>
     </div>
-
+    <br>
     <a href="{% url 'users:edit_profile' %}" class="btn btn-warning">Edit Profile</a>
 </div>
 {% endblock %}

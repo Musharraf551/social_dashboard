@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def register_view(request):
     if request.method == 'POST':
@@ -31,3 +32,8 @@ def profile_edit_view(request):
     else:
         form = CustomUserChangeForm(instance=request.user)
     return render(request, 'users/edit_profile.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You have been logged out.")
+    return redirect('login')  # or any other page like 'home'

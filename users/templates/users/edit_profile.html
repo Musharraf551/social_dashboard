@@ -5,8 +5,7 @@
     <h2>Edit Profile</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ u_form.as_p }}
-        {{ p_form.as_p }}
+        {{ form.as_p }}
         <button type="submit" class="btn btn-success">Save Changes</button>
     </form>
 </div>
