@@ -15,7 +15,7 @@ BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
 # Authenticate with v2 API
 client = tweepy.Client(bearer_token=BEARER_TOKEN)
 
-def fetch_recent_tweets(username, count=5):
+def fetch_recent_tweets(username, count=10):
     try:
         # Get user ID from username
         user = client.get_user(username=username)
